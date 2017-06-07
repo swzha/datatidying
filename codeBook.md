@@ -1,6 +1,6 @@
 # Tidy Data Set
 
-## Source:
+## Source
 Jorge L. Reyes-Ortiz(1,2), Davide Anguita(1), Alessandro Ghio(1), Luca Oneto(1) and Xavier Parra(2)
 1. Smartlab - Non-Linear Complex Systems Laboratory
 DITEN - Università degli Studi di Genova, Genoa (I-16145), Italy. 
@@ -18,11 +18,11 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 #### Activities: 
 	Six levels - WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 
-### VolunteerID:
+#### VolunteerID:
 	Range: 1-30
 	It represents id numbers of a group of 30 volunteers
 
-### All column values for column 3 to column 88 are the averages corresponding to each activity and subject (i.e. volunteer identifier).
+#### All column values for column 3 to column 88 are the averages corresponding to each activity and subject (i.e. volunteer identifier).
  
 The following are the list of variables of the final tidy data. 
 See more details @ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
