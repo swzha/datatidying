@@ -38,6 +38,7 @@ Then we read two activity label files.
 ##Reading Activity labels
 testLabels <- read.csv("test/y_test.txt", sep = "", header = FALSE)
 trainLabels <- read.csv("train/y_train.txt", sep = "", header = FALSE)
+mergedLabels <- rbind(testLabels, trainLabels)
 ```
 Read subjects (volunteer IDs) files and **merge** all rows.
 ```
