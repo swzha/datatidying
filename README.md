@@ -25,8 +25,8 @@ From the data set in step 4, creates a second, independent tidy data set with th
 
 # Code Explanations
 
-We applied all same read format to the files. We used sep="" cause given file format seperated like that. And also header=FALSE, just don't want to lose first row of data. If its true, first row would be column names which we don't want to. 
-Reads these two files from UCI HAR Dataset and combine test and train sets with **rbind** function:
+Same read format was applied to all files. sep="" reflected all given files' format. And also header=FALSE, just don't want to lose first row of data. If its true, first row would be column names which we don't want to. 
+Reads two test and train files from UCI HAR Dataset and combine them with **rbind** function:
 ``` 
 ##Reading Sets
 testSet <- read.csv("test/X_test.txt", sep = "", header = FALSE)
