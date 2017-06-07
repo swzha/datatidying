@@ -31,8 +31,9 @@ Reads these two files from UCI HAR Dataset and combine test and train sets with 
 > ##Reading Sets
 
 > testSet <- read.csv("test/X_test.txt", sep = "", header = FALSE)
-> trainSet <- read.csv("train/X_train.txt", sep = "", header = FALSE)
-> mergedData <- rbind(testSet, trainSet)
+trainSet <- read.csv("train/X_train.txt", sep = "", header = FALSE)
+
+mergedData <- rbind(testSet, trainSet)
 
 Then we read two activity label files. 
 ##Reading Activity labels
