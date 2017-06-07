@@ -26,7 +26,7 @@ From the data set in step 4, creates a second, independent tidy data set with th
 # Code explanations
 
 We applied all same read format to the files. We used sep="" cause given file format seperated like that. And also header=FALSE, just don't want to lose first row of data. If its true, first row would be column names which we don't want to. 
-Reads these two files from UCI HAR Dataset and combine test and train sets with rbind function:
+Reads these two files from UCI HAR Dataset and combine test and train sets with **rbind** function:
 
 ``` ##Reading Sets
 testSet <- read.csv("test/X_test.txt", sep = "", header = FALSE)
@@ -34,40 +34,41 @@ trainSet <- read.csv("train/X_train.txt", sep = "", header = FALSE)
 mergedData <- rbind(testSet, trainSet)
 ```
 Then we read two activity label files. 
-##Reading Activity labels
+
+```##Reading Activity labels
 testLabels <- read.csv("test/y_test.txt", sep = "", header = FALSE)
 trainLabels <- read.csv("train/y_train.txt", sep = "", header = FALSE)
+```
+Read subjects (volunteer IDs) files and **merge** all rows.
 
-Read subjects (volunteer IDs) files and merge all rows.
-
-##Reading Volunteers' identifiers
+```##Reading Volunteers' identifiers
 testVolunteers <- read.csv("test/subject_test.txt", sep = "", header = FALSE)
 trainVolunteers <- read.csv("train/subject_train.txt", sep = "", header = FALSE)
 mergedVolunteers <- rbind(testVolunteers, trainVolunteers)
-
-The features file is read to introduce all coloumn names for test and train sets. The activity_labels file contains the id and value of 6 activitieis. 
-
+```
+The **features** file is read to introduce all coloumn names for test and train sets. The **activity_labels** file contains the id and value of 6 activitieis. 
+```
 ##Reading Features and ActivityLabels vector
 features <- read.csv("features.txt", sep = "", header = FALSE)[2]
 activities <- read.csv("activity_labels.txt", sep = "", header = FALSE)
+```
+Regular expression is used to extract only the measurements on the **mean** and **standard** deviation for each measurement. 
 
-Regular expression is used to extract only the measurements on the mean and standard deviation for each measurement. 
-
-##Extracting columns which includes measurements
+```##Extracting columns which includes measurements
 names(mergedData) <- features[ ,1]
 mergedData <- mergedData[grepl("std|mean", names(mergedData), ignore.case = TRUE)]
+```
+This inserts two columns into the biginning of final dataset. Both will be used to **group** the data.
 
-This inserts two columns into the biginning of final dataset. Both will be used to group the data.
-
-##Descriptive Activity name analysis
+```##Descriptive Activity name analysis
 library(dplyr)
 mergedLabels <- merge(mergedLabels, activities, by.x = "V1", by.y = "V1")[2]
 mergedData <- cbind(mergedLabels, mergedVolunteers, mergedData)
 names(mergedData)[1:2] <- c("Activities", "VolunteerID")
-
-Group the data according to activities and volunteer IDs. A tidying set in txt file is created with write.table() using row.names=FALSE.
-
+```
+Group the data according to activities and volunteer IDs. A tidying set in txt file is created with **write.table()** using row.names=FALSE.
+```
 ##Tidying mergedSet
 tidyData <- group_by(mergedData, Activities, VolunteerID)
 tidyData <- summarize_each(tidyData, funs(mean))
-write.table(tidyData, "tidy_data.txt", row.name=FALSE)
+write.table(tidyData, "tidy_data.txt", row.name=FALSE)```
