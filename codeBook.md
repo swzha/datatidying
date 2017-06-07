@@ -2,9 +2,9 @@
 
 ## Source:
 Jorge L. Reyes-Ortiz(1,2), Davide Anguita(1), Alessandro Ghio(1), Luca Oneto(1) and Xavier Parra(2)
-1 - Smartlab - Non-Linear Complex Systems Laboratory
+1. Smartlab - Non-Linear Complex Systems Laboratory
 DITEN - Università degli Studi di Genova, Genoa (I-16145), Italy. 
-2 - CETpD - Technical Research Centre for Dependency Care and Autonomous Living
+2. CETpD - Technical Research Centre for Dependency Care and Autonomous Living
 Universitat Politècnica de Catalunya (BarcelonaTech). Vilanova i la Geltrú (08800), Spain
 activityrecognition '@' smartlab.ws
 
@@ -22,9 +22,9 @@ See more details @ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recogni
 	Range: 1-30
 	It represents id numbers of a group of 30 volunteers
 
-All column values for column 3 to column 88 are the averages corresponding to each activity and subject (i.e. volunteer identifier).
+### All column values for column 3 to column 88 are the averages corresponding to each activity and subject (i.e. volunteer identifier).
  
-The following are the list of variables of the final tidy data. 
+### The following are the list of variables of the final tidy data. 
 
  [1] "Activities"                          
  [2] "VolunteerID"                         
