@@ -29,8 +29,11 @@ We applied all same read format to the files. We used sep="" cause given file fo
 Reads these two files from UCI HAR Dataset and combine test and train sets with rbind function:
 
 > ##Reading Sets
+
 > testSet <- read.csv("test/X_test.txt", sep = "", header = FALSE)
+
 > trainSet <- read.csv("train/X_train.txt", sep = "", header = FALSE)
+
 > mergedData <- rbind(testSet, trainSet)
 
 Then we read two activity label files. 
