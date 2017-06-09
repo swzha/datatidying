@@ -63,13 +63,19 @@ This inserts two columns into the biginning of final dataset. Both will be used 
 ```
 ##Descriptive Activity name analysis
 library(dplyr)
-mergedLabels <- merge(mergedLabels, activities, by.x = "V1", by.y = "V1")[2]
-mergedData <- cbind(mergedLabels, mergedVolunteers, mergedData)
+mergedLabels$id <- 1: nrow(mergedLabels)
+merged <- merge(x=mergedLabels, y=activities, by.x = "V1", by.y = "V1", all.x =TRUE)
+ordered <- merged[order(mergedLabels$id),]
+df <- arrange(ordered, id)
+Labels <- df[, 3]
+mergedData <- cbind(Labels, mergedVolunteers, mergedData)
 names(mergedData)[1:2] <- c("Activities", "VolunteerID")
 ```
 Group the data according to activities and volunteer IDs. A tidying set in txt file is created with **write.table()** using row.names=FALSE.
 ```
 ##Tidying mergedSet
-tidyData <- group_by(mergedData, Activities, VolunteerID)
-tidyData <- summarize_each(tidyData, funs(mean))
-write.table(tidyData, "tidy_data.txt", row.name=FALSE)```
+tidyData <-  group_by(mergedData, Activities, VolunteerID) %>%
+         summarise_each(funs(mean))
+write.table(tidyData, "tidy_data.txt", row.name=FALSE, col.name=FALSE)
+write.csv(tidyData, "tidy_data.csv")
+```
