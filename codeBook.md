@@ -27,7 +27,8 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 The following are the list of variables of the final tidy data. 
 See more details @ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
- [1] "Activities"  [2] "VolunteerID"                         
+ [1] "Activities"  
+ [2] "VolunteerID"                         
  [3] "tBodyAcc-mean()-X"                   
  [4] "tBodyAcc-mean()-Y"                   
  [5] "tBodyAcc-mean()-Z"                   
